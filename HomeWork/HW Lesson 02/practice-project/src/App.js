@@ -11,8 +11,10 @@ function App() {
       <Task task="Jogging" />
       <Task task="Learn React" />
       <Task task="Doing excercises" />
+      <Task task="Playing football" />
+      <Task task="Reading books" />
       <div className="footer">
-        <p>5 tasks left!</p>
+        <p>7 tasks left!</p>
         <p>MindX todolist</p>
       </div>
     </div >
