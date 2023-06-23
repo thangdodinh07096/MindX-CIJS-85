@@ -11,23 +11,18 @@ const ForgotPassword = () => {
             </div>
             <div className="forgotPassword-content col-6">
                 <div className="forgotPassword-title">
-                    Welcome to Shop App
+                    Forgot Password?
                 </div>
+                <p>Please enter your email to recover your password</p>
                 <form className="forgotPassword-form">
                     <div className="form-group">
-                        <input type="text" className="form-control" name="userName" placeholder="User Name" />
-                    </div>
-                    <div className="form-group">
                         <input type="email" className="form-control" name="email" placeholder="Email@gmail.com" />
+                        {/* <span className="toggle-password float-end">Send code</span> */}
                     </div>
                     <div className="form-group">
-                        <input type="password" className="form-control" name="password" placeholder="Password" />
-                        {/* <span className="toggle-password float-end">Show</span> */}
+                        <input type="number" className="form-control" name="code" placeholder="Code" />
                     </div>
-                    <div className="form-group">
-                        <input type="password" className="form-control" name="confirmPassword" placeholder="Confirm Password" />
-                    </div>
-                    <button className="form-btn" type="submit" >forgotPassword</button>
+                    <button className="form-btn" type="submit" >Recover Password</button>
                 </form>
                 <a href="#">Login</a>
             </div>
