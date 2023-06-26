@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+.info-bar {
+  height: 38px;
+  background-color: #F0E9E9;
+  align-items: center;
+
+}
+
+.nav-link {
+  display: inline;
+  padding: 0 20px;
+  text-align: center;
+  justify-content: center;
+}
+
+.nav {
+  height: 162px;
+  background-color: #FFD333;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nav-con {
+  position: absolute;
+  top: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-name {
+  font-family: 'Red Rose', cursive;
+  font-size: 36px;
+}
+
+.search-bar {
+  display: flex;
+  height: 52px;
+  width: 900px;
+  margin: 0 20px;
+  background-color: #C4C4C4;
+}
+
+.search-cate {
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.nav-btn {
+  font-size: 36px;
+}
+
+.btn-cart {
+  padding-right: 30px;
+}
+
+img{
+  width: 100%;
+}
