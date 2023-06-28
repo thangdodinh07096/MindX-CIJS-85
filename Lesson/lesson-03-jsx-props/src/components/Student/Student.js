@@ -1,30 +1,26 @@
 import "./Student.css";
 
 const Student = (props) => {
-  const { studentName, classCode, math, phy, chem, children } = props || {};
+  const { student, order, deleteStudent } = props;
+  const { studentName, classCode, math, phy, chem, id } = student || {};
+  const gpa = ((+math + +phy + +chem) / 3).toFixed(1);
   return (
-    <div className="student">
-      <h6>{studentName}</h6>
-      <p>
-        <strong> Lớp: </strong>
-        {classCode}
-      </p>
-      <ul>
-        <li>
-          <strong>Toán:</strong>
-          {math}
-        </li>
-        <li>
-          <strong>Lý:</strong>
-          {phy}
-        </li>
-        <li>
-          <strong>Hoá:</strong>
-          {chem}
-        </li>
-      </ul>
-      {children}
-    </div>
+    <tr>
+      <th scope="row">{order + 1}</th>
+      <td>{studentName}</td>
+      <td>{classCode}</td>
+      <td>{math}</td>
+      <td>{phy}</td>
+      <td>{chem}</td>
+      <td>{gpa}</td>
+      <td>
+        <div className="d-flex align-items-center">
+          <button className="btn btn-danger" onClick={() => deleteStudent(id)}>
+            Delete
+          </button>
+        </div>
+      </td>
+    </tr>
   );
 };
 

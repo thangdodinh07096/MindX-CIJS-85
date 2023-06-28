@@ -1,4 +1,5 @@
 import "./App.css";
+import AddNewStudent from "./components/AddNewStudent/AddNewStudent";
 // import ClassComponent from "./ClassComponent";
 // import Counter from "./components/Counter/Counter";
 
@@ -12,6 +13,7 @@ function App() {
   return (
     <div>
       {/* <ClassComponent /> */}
+      {/* <AddNewStudent /> */}
       <StudentManagement />
       {/* <Counter /> */}
       {/* <UserComponent /> */}
