@@ -41,6 +41,7 @@ const studentMockData = [
 
 const StudentManagement = () => {
   const [studentList, setStudentList] = useState(studentMockData);
+  const [sortOption, setSortOption] = useState("default");
 
   const onAddStudentHandler = (student) => {
     const newStudent = {
@@ -49,6 +50,53 @@ const StudentManagement = () => {
     };
     setStudentList([...studentList, newStudent]);
   };
+
+  const onSortOptionChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
+  const calculateStudentGPA = (student) => ((Number(student.math) + Number(student.phy) + Number(student.chem)) / 3).toFixed(1);
+
+  const sortStudentList = (studentList, sortOption) => {
+    let sortedStudentList = [...studentList];
+    switch (sortOption) {
+      case "1": {
+        sortedStudentList = studentList.sort(
+          (studentA, studentB) =>
+            calculateStudentGPA(studentA) - calculateStudentGPA(studentB)
+        );
+        break;
+      }
+      case "2": {
+        sortedStudentList = studentList.sort(
+          (studentA, studentB) =>
+            calculateStudentGPA(studentB) - calculateStudentGPA(studentA)
+        );
+        break;
+      }
+      case "3":
+        sortedStudentList = studentList.sort((studentA, studentB) =>
+          studentA.studentName
+            .toLowerCase()
+            .localeCompare(studentB.studentName.toLowerCase())
+        );
+        break;
+      case "4":
+        sortedStudentList = studentList.sort((studentA, studentB) =>
+          studentB.studentName
+            .toLowerCase()
+            .localeCompare(studentA.studentName.toLowerCase())
+        );
+        break;
+
+      case "default":
+      default:
+        return studentList;
+    }
+    return sortedStudentList;
+  };
+  
+  const sortedStudentValues = sortStudentList(studentList, sortOption);
 
   const onDeleteStudentHandler = (id) => {
     const filteredStudentList = studentList.filter(
@@ -62,13 +110,17 @@ const StudentManagement = () => {
       <h1 className="text-center">Dự án quản lý học sinh</h1>
       <AddNewStudent addNewStudent={onAddStudentHandler} />
       <div className="d-flex align-items-center justify-content-end gap-2 my-3">
-        <button className="btn btn-primary" onClick={onAddStudentHandler}>
-          Thêm học sinh mới
-        </button>
-        <button className="btn btn-success">Sắp xếp</button>
+        <select className="form-select" onChange={onSortOptionChange} value={sortOption}>
+          <option value={"default"}>Sắp xếp</option>
+          <option value={1}>GPA tăng dần</option>
+          <option value={2}>GPA giảm dần</option>
+          <option value={3}>Tên từ A - Z</option>
+          <option value={4}>Tên từ Z - A</option>
+        </select>
+
       </div>
       <StudentTable
-        studentList={studentList}
+        studentList={sortedStudentValues}
         deleteStudent={onDeleteStudentHandler}
       />
     </div>
